@@ -1,5 +1,5 @@
-RSpec.describe Terminal do
-  subject { described_class.new(logger: Logger.new('tmp/test.log')) }
+RSpec.describe IOProviders::Console do
+  subject { described_class.new(logger: Logger.new(Helpers::FileLog.name)) }
 
   context '#read' do
     it 'prints > stdin' do

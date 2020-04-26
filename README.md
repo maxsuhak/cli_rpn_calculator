@@ -6,7 +6,7 @@ Command-line (CLI) reverse polish notation (RPN) calculator using ruby language.
 ## Features
 
 * The calculator uses standard ruby input `STDIN` and standard output `STDOUT`
-* Four standard arithmetic operators: addition (+), multiplication (*), subtraction (-), division (/)
+* Four standard arithmetic operators: addition `+`, multiplication `*`, subtraction `-`, division `/`
 * The calculator exit when it receives a `q` command or an end of input indicator (EOF / Ctrl+D)
 * The calculator returns information when it receives a `i`
 * The calculator returns welcome message when it receives a `w`
@@ -42,7 +42,7 @@ Test this application locally:
 $ rspec spec
 ```
 
-Note: All 77 tests should be passed.
+Note: All 82 tests should be passed.
 
 ## Usage
 
@@ -87,6 +87,8 @@ Calculation terminated. Goodbye!
 ```
 
 ## Technical notes / architectural choices
+
+
 
 ## Trade-offs / possible improvements
 

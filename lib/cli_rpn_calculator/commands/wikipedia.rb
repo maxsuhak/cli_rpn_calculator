@@ -1,5 +1,5 @@
 module Commands
-  class Wikipedia
+  class Wikipedia < Base
     COMMAND = '?'.freeze
 
     class << self

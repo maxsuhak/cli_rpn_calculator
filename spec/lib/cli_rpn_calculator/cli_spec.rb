@@ -1,8 +1,8 @@
 RSpec.describe CLI do
   subject { described_class.new(terminal: terminal) }
 
-  let(:logger) { Logger.new('tmp/test.log') }
-  let(:terminal) { Terminal.new(logger: logger) }
+  let(:logger) { Logger.new(Helpers::FileLog.name) }
+  let(:terminal) { IOProviders::Console.new(logger: logger) }
   let(:operators) do
     [
       Operators::Addition,

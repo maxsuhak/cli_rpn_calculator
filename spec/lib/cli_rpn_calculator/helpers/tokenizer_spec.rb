@@ -1,4 +1,4 @@
-RSpec.describe Tokenizer do
+RSpec.describe Helpers::Tokenizer do
   subject { described_class }
 
   context '.eof?' do

@@ -1,5 +1,5 @@
 module Commands
-  class ClearStack
+  class ClearStack < Base
     COMMAND = 'c'.freeze
 
     class << self
