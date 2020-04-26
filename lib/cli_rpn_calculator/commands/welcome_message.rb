@@ -1,12 +1,14 @@
 module Commands
   class WelcomeMessage
+    COMMAND = 'w'.freeze
+
     class << self
       def applicable?(command)
-        command == 'w'
+        command == COMMAND
       end
 
       def execute
-        puts 'Welcome to the CLI RPN Calculator!'
+        'Welcome to the CLI RPN Calculator!'
       end
     end
   end

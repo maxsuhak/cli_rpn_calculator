@@ -1,7 +1,7 @@
 class Tokenizer
   class << self
     def eof?(input)
-      input.nil? || input == 'q'
+      ['q', nil].include?(input)
     end
 
     def tokenize(str)

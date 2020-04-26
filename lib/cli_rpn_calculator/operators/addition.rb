@@ -1,8 +1,10 @@
 module Operators
-  class Addition < Binary
+  class Addition < Base
+    OPERATOR = '+'.freeze
+
     class << self
       def applicable?(operator)
-        operator == '+'
+        operator == OPERATOR
       end
 
       def execute(a, b)

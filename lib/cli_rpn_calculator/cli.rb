@@ -16,19 +16,21 @@ class CLI
     Commands::ClearStack
   ].freeze
 
-  def initialize
+  attr_accessor :operands, :message, :terminal
+
+  def initialize(terminal:)
     self.operands = []
+    self.message  = false
+    self.terminal = terminal
   end
 
   def apply(str)
     tokens = Tokenizer.tokenize(str)
     tokens.each { |token| process_token(token) }
-    operands.last
+    terminal.write operands.last unless message
   end
 
   private
-
-  attr_accessor :operands
 
   def numeric?(str)
     !Float(str).nil?
@@ -41,8 +43,7 @@ class CLI
       return send("apply_#{get_module_name(class_name)}", class_name) if class_name.applicable?(token)
     end
 
-    raise ArgumentError, "#{token.inspect} " \
-                         "isn't a supported operator or command. " \
+    raise ArgumentError, "'#{token}' isn't a supported operator or command. " \
                          "Please, use 'i' for more info."
   end
 
@@ -51,6 +52,8 @@ class CLI
   end
 
   def process_token(token)
+    self.message = false
+
     if numeric?(token)
       operands << BigDecimal(token)
     else
@@ -71,6 +74,7 @@ class CLI
   end
 
   def apply_command(command)
-    command.execute
+    self.message = true
+    terminal.write command.execute
   end
 end

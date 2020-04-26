@@ -1,12 +1,18 @@
 module Commands
   class CheckStack
+    COMMAND = 's'.freeze
+
     class << self
       def applicable?(command)
-        command == 's'
+        command == COMMAND
       end
 
       def execute
-        CLI.instance_variable_get(:@operands)
+        operands = []
+        ObjectSpace.each_object(CLI) do |instance|
+          operands << instance.instance_variable_get(:@operands)
+        end
+        "List of operands: #{operands.flatten.map(&:to_f)}"
       end
     end
   end

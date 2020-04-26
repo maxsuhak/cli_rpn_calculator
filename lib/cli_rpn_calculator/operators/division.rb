@@ -1,8 +1,10 @@
 module Operators
-  class Division < Binary
+  class Division < Base
+    OPERATOR = '/'.freeze
+
     class << self
       def applicable?(operator)
-        operator == '/'
+        operator == OPERATOR
       end
 
       def execute(a, b)
