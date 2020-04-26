@@ -12,34 +12,46 @@ Dir["#{ROOT}/lib/cli_rpn_calculator/commands/*.rb"].sort.each     { |file| requi
 require './lib/cli_rpn_calculator/cli'
 
 class CLIRPNCalculator
-  attr_accessor :calculator, :logger, :input, :output, :options
+  attr_accessor :calculator, :logger, :io, :options
 
   def initialize(options: {})
     self.options    = options
     self.logger     = Logger.new(Helpers::FileLog.name)
-    self.input      = IOProviders::Console.new(logger: logger) if options['input']  == 'console'
-    self.output     = IOProviders::Console.new(logger: logger) if options['output'] == 'console'
-    self.calculator = CLI.new(output: output)
+    self.io         = io_provider
+    self.calculator = CLI.new(io: io)
   end
 
   def welcome_message
-    output.write(Commands::WelcomeMessage.execute, 'info')
-    output.write(Commands::Instructions.execute, 'info')
+    io.write(Commands::WelcomeMessage.execute, 'info')
+    io.write(Commands::Instructions.execute, 'info')
   end
 
   def start
     loop do
-      input_line = input.read
-      if Helpers::Tokenizer.eof?(input_line)
-        output.write('Calculation terminated. Goodbye!', 'info')
+      input = io.read
+      if Helpers::Tokenizer.eof?(input)
+        io.write('Calculation terminated. Goodbye!', 'info')
         break
       end
 
       begin
-        calculator.apply(input_line.downcase)
+        calculator.apply(input.downcase)
       rescue ArgumentError => e
-        output.write e.message, 'error'
+        io.write e.message, 'error'
       end
+    end
+  end
+
+  private
+
+  def io_provider
+    case options['io']
+    when 'console'
+      IOProviders::Console.new(logger: logger)
+    when 'file'
+      raise NotImplementedError
+    else
+      raise NotImplementedError
     end
   end
 end

@@ -1,5 +1,5 @@
 RSpec.describe CLIRPNCalculator do
-  subject { described_class.new(options: { 'input' => 'console', 'output' => 'console' }) }
+  subject { described_class.new(options: { 'io' => 'console' }) }
 
   before do
     stub_const 'STDIN', double
