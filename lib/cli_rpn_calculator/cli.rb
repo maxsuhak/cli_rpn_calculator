@@ -16,18 +16,18 @@ class CLI
     Commands::ClearStack
   ].freeze
 
-  attr_accessor :operands, :message, :terminal
+  attr_accessor :operands, :message, :output
 
-  def initialize(terminal:)
+  def initialize(output:)
     self.operands = []
     self.message  = false
-    self.terminal = terminal
+    self.output   = output
   end
 
   def apply(str)
-    tokens = Tokenizer.tokenize(str)
+    tokens = Helpers::Tokenizer.tokenize(str)
     tokens.each { |token| process_token(token) }
-    terminal.write operands.last unless message
+    output.write operands.last unless message
   end
 
   private
@@ -75,6 +75,6 @@ class CLI
 
   def apply_command(command)
     self.message = true
-    terminal.write command.execute
+    output.write command.execute
   end
 end

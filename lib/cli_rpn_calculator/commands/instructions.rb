@@ -1,5 +1,5 @@
 module Commands
-  class Instructions
+  class Instructions < Base
     COMMAND = 'i'.freeze
 
     class << self

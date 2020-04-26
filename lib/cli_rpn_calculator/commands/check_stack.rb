@@ -1,5 +1,5 @@
 module Commands
-  class CheckStack
+  class CheckStack < Base
     COMMAND = 's'.freeze
 
     class << self

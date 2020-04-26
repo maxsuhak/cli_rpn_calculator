@@ -1,5 +1,5 @@
 module Commands
-  class WelcomeMessage
+  class WelcomeMessage < Base
     COMMAND = 'w'.freeze
 
     class << self
