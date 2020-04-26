@@ -1,4 +1,4 @@
-CLI RPN Calculator <img src="https://img.shields.io/badge/ruby%20-v2.6.6-brightgreen.svg" title="ruby-badge"> <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/maxsuhak/cli_rpn_calculator"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/maxsuhak/cli_rpn_calculator"> https://github.com/maxsuhak/cli_rpn_calculator/workflows/CI/badge.svg?branch=master
+CLI RPN Calculator <img src="https://img.shields.io/badge/ruby%20-v2.6.6-brightgreen.svg" title="ruby-badge"> <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/maxsuhak/cli_rpn_calculator"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/maxsuhak/cli_rpn_calculator"> ![MASTER CI](https://github.com/AnjanJ/fuber/workflows/CI/badge.svg?branch=master)
 ===================
 
 Command-line (CLI) reverse polish notation (RPN) calculator using ruby language.
