@@ -1,8 +1,10 @@
 module Commands
   class ClearStack
+    COMMAND = 'c'.freeze
+
     class << self
       def applicable?(command)
-        command == 'c'
+        command == COMMAND
       end
 
       def execute
@@ -10,7 +12,7 @@ module Commands
           instance.instance_variable_set(:@operands, [])
         end
 
-        puts 'Stack has been cleared!'
+        'Stack has been cleared!'
       end
     end
   end

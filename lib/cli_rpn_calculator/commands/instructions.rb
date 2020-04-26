@@ -1,17 +1,19 @@
 module Commands
   class Instructions
+    COMMAND = 'i'.freeze
+
     class << self
       def applicable?(command)
-        command == 'i'
+        command == COMMAND
       end
 
       def execute
-        puts "Press 'i' for instructions on use."
-        puts "Press '?' for a link to more info about RPN."
-        puts "Press 's' to see the current stack."
-        puts "Press 'c' to clear the current stack."
-        puts "Press 'w' to repeat this welcome message."
-        puts "Press 'q' to quit."
+        "Press 'i' for instructions on use.\n" \
+          "Press '?' for a link to more info about RPN.\n" \
+          "Press 's' to see the current stack.\n" \
+          "Press 'c' to clear the current stack.\n" \
+          "Press 'w' to repeat this welcome message.\n" \
+          "Press 'q' to quit."
       end
     end
   end

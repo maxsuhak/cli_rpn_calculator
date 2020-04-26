@@ -6,3 +6,5 @@ services:
       - .:/cli_rpn_calculator
     working_dir: /cli_rpn_calculator
     command: ruby start.rb
+    environment:
+      PRODUCTION: 'true'
