@@ -16,18 +16,16 @@ class CLI
     Commands::ClearStack
   ].freeze
 
-  attr_accessor :operands, :message, :io
-
   def initialize(io:)
-    self.operands = []
-    self.message  = false
-    self.io       = io
+    @operands = []
+    @message  = false
+    @io       = io
   end
 
   def apply(str)
     tokens = Helpers::Tokenizer.tokenize(str)
     tokens.each { |token| process_token(token) }
-    io.write operands.last unless message
+    @io.write @operands.last unless @message
   end
 
   private
@@ -52,29 +50,29 @@ class CLI
   end
 
   def process_token(token)
-    self.message = false
+    @message = false
 
     if numeric?(token)
-      operands << BigDecimal(token)
+      @operands << BigDecimal(token)
     else
       execute_operator_or_command(token)
     end
   end
 
   def validate_operator(operator)
-    return unless operator.number_of_operands > operands.length
+    return unless operator.number_of_operands > @operands.length
 
     raise ArgumentError, 'There are not enough operands to complete operation.'
   end
 
   def apply_operator(operator)
     validate_operator(operator)
-    current_operands = operands.pop(operator.number_of_operands)
-    operands << operator.execute(*current_operands)
+    current_operands = @operands.pop(operator.number_of_operands)
+    @operands << operator.execute(*current_operands)
   end
 
   def apply_command(command)
-    self.message = true
-    io.write command.execute
+    @message = true
+    @io.write command.execute
   end
 end

@@ -1,10 +1,8 @@
 module IOProviders
   class Base
-    attr_accessor :options, :logger
-
     def initialize(options = {}, logger = Logger.new(Helpers::FileLog.name))
-      self.options = options
-      self.logger  = logger
+      @options = options
+      @logger  = logger
     end
 
     def read
