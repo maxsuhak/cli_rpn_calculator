@@ -1,4 +1,4 @@
-CLI RPN Calculator <img src="https://img.shields.io/badge/ruby%20-v2.6.6-brightgreen.svg" title="ruby-badge"> <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/maxsuhak/cli_rpn_calculator"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/maxsuhak/cli_rpn_calculator"> ![MASTER CI](https://github.com/AnjanJ/fuber/workflows/CI/badge.svg?branch=master)
+CLI RPN Calculator <img src="https://img.shields.io/badge/ruby%20-v2.6.6-brightgreen.svg" title="ruby-badge"> <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/maxsuhak/cli_rpn_calculator"> <img alt="GitHub issues" src="https://img.shields.io/github/issues/maxsuhak/cli_rpn_calculator"> ![MASTER CI](https://github.com/maxsuhak/cli_rpn_calculator/workflows/CI/badge.svg?branch=master)
 ===================
 
 Command-line (CLI) Reverse Polish Notation (RPN) calculator using ruby language.
@@ -95,7 +95,7 @@ Calculation terminated. Goodbye!
 * A standard IO interface `IOProviders::Base` is built with extension to new, IO-like interfaces, class `IOProviders::Console` has been extracted.
 * There are separate operator and command classes.
 * Logs are stored and located into `tmp/`.
-* Code is Rubocop consistent.
+* Code is `RuboCop` consistent.
 * Code is well tested for prevent regression used `RSpec`.
 * Configured GitHub workflow actions for prevent regressions.
 
