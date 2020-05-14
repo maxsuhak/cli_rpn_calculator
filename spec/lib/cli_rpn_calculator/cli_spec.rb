@@ -9,7 +9,9 @@ RSpec.describe CLI do
       Operators::Division,
       Operators::Multiplication,
       Operators::Subtraction,
-      Operators::Sin
+      Operators::Sin,
+      Operators::Pythagorean,
+      Operators::Tan
     ]
   end
   let(:commands) do
