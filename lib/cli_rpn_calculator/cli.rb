@@ -5,7 +5,8 @@ class CLI
     Operators::Addition,
     Operators::Division,
     Operators::Multiplication,
-    Operators::Subtraction
+    Operators::Subtraction,
+    Operators::Sin
   ].freeze
 
   COMMANDS = [

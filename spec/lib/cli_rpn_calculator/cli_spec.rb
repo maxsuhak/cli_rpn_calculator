@@ -8,7 +8,8 @@ RSpec.describe CLI do
       Operators::Addition,
       Operators::Division,
       Operators::Multiplication,
-      Operators::Subtraction
+      Operators::Subtraction,
+      Operators::Sin
     ]
   end
   let(:commands) do
